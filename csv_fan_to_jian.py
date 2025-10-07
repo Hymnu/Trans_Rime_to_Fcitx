@@ -4,12 +4,6 @@ import opencc
 import math
 from pypinyin import pinyin, Style
 
-'''简介：
-1. 将小狼毫的繁体词库.dict.yaml转换为符合小企鹅标准的简体txt词库
-2. 输入路径为IN_TSV
-3. 输入中的0词频依照小企鹅官方建议设为0，需修改则调整第5步
-'''
-
 # 1. 路径设置
 IN_TSV = r"C:\Users\ZhuanZ（无密码）\Desktop\luna_pinyin_export.dict.yaml"  # 原始繁体文件
 OUT_TXT = 'gbk.txt'  # 输出简体文件
