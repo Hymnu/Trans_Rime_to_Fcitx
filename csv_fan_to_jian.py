@@ -28,13 +28,27 @@ df_merged = df.groupby(df.iloc[:, 0]).agg({
 # 重新排列列的顺序为原始顺序
 df_merged = df_merged[[df.columns[0], df.columns[1], df.columns[2]]]
 
-# 5. 计算对数词频
-max_freq = df_merged.iloc[:, 2].max()
-df_merged.iloc[:, 2] = df_merged.iloc[:, 2].apply(
-    lambda x: 0 if x == 0 else math.log10(x / max_freq)
-)
+# 5. 计算新的score值
+total_freq = df_merged.iloc[:, 2].sum()  # 总频次
 
-# 6. 按对数词频降序排列
+def calculate_score(freq):
+    if freq == 0:
+        return 0
+    prob = freq / total_freq  # 概率
+    score = math.log10(prob) * 10  # 计算对数概率并乘以10
+    
+    # 转换为整数并应用限制
+    score_int = int(score)
+    if score_int > 0:
+        score_int = 0
+    if score_int < -127:
+        score_int = -127
+    
+    return score_int
+
+df_merged.iloc[:, 2] = df_merged.iloc[:, 2].apply(calculate_score)
+
+# 6. 按score降序排列（数值越大表示词频越高）
 df_merged = df_merged.sort_values(by=df.columns[2], ascending=False)
 
 # 7. 生成完整拼音（使用'分隔）
@@ -51,3 +65,5 @@ with open(OUT_TXT, 'w', encoding='utf-8') as f:
         f.write(line)
 
 print('转换完成 →', OUT_TXT)
+print(f"总词频: {total_freq}")
+print(f"score范围: {df_merged.iloc[:, 2].min()} 到 {df_merged.iloc[:, 2].max()}")
