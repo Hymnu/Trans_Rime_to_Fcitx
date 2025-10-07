@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36221.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "csv_fan_to_jian", "csv_fan_to_jian.pyproj", "{17791BB3-83BC-44F4-BBF4-666DA2AA326B}"
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "fcitx_trans", "fcitx_trans.pyproj", "{17791BB3-83BC-44F4-BBF4-666DA2AA326B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -5,12 +5,12 @@
     <ProjectGuid>17791bb3-83bc-44f4-bbf4-666da2aa326b</ProjectGuid>
     <ProjectHome>
     </ProjectHome>
-    <StartupFile>csv_fan_to_jian.py</StartupFile>
+    <StartupFile>fcitx_trans.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>csv_fan_to_jian</Name>
+    <Name>fcitx_trans</Name>
     <RootNamespace>yincheng</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -22,7 +22,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="csv_fan_to_jian.py" />
+    <Compile Include="fcitx_trans.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
